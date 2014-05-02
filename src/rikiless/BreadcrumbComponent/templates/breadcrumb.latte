@@ -1,0 +1,19 @@
+{* Responsive template for Bootstrap 3.2 with rich snippets *}
+
+<div n:if="$items" n:class="($backLink == FALSE) ? 'hidden-xs hidden-sm', breadcrumb-frame">
+	<div class="container">
+		<ul class="breadcrumb visible-md visible-lg">
+			<li>
+				<a href="{$homepage['link']}">{$homepage['name']}</a>
+			</li>
+			<li n:foreach="$items as $item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="{$item['link']}" n:tag-if="$item['link'] and !$iterator->last" itemprop="url"><span itemprop="title">{$item['name']}</span></a>
+			</li>
+		</ul>
+		<ul class="breadcrumb visible-xs visible-sm">
+			<li>
+				<a href="{$backLink['link']}"><span class="glyphicon glyphicon-chevron-left"></span> {$backLink['name']}</a>
+			</li>
+		</ul>
+	</div>
+</div>
