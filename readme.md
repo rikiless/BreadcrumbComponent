@@ -73,6 +73,7 @@ class CatalogPresenter ... {
     }
 
 }
+```
 
 Rendered examples:
 
