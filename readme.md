@@ -40,7 +40,7 @@ class Presenter ... {
      * @var Rikiless\BreadcrumbComponent\IControl
      * @inject
      */
-    public breadcrumbControl;
+    public $breadcrumbControl;
 
     public function createComponentBreadcrumb()
     {
@@ -81,4 +81,4 @@ Rendered examples:
 
 ![Example 2](http://github.rikiho.net/breadcrumb-component-2.png)
 
-* In default template is use of classes ``.visible-sm`` mixed with ``.visible-lg`` and it seems to be [broken](https://github.com/twbs/bootstrap/issues/12015) in Bootstrap 3.1.
+\* In default template is use of classes ``.visible-sm`` mixed with ``.visible-lg`` and it seems to be [broken](https://github.com/twbs/bootstrap/issues/12015) in Bootstrap 3.1.
