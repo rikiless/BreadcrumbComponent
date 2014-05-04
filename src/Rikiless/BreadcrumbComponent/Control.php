@@ -1,15 +1,19 @@
 <?php
 
 namespace Rikiless\BreadcrumbComponent;
-use Nette\Application\UI;
+
+use Nette;
 
 /**
  * Basic component rendering responsive breadcrumb
  *
  * @author Richard Tekel <richardtekel@me.com>
  */
-class Control extends UI\Control
+class Control extends Nette\Application\UI\Control
 {
+
+	/** @var Nette\Localization\ITranslator */
+	private $translator;
 
 	/** @var array */
 	private $homepage = [];
@@ -19,22 +23,40 @@ class Control extends UI\Control
 
 
 
+	public function __construct(Nette\Localization\ITranslator $translator = NULL)
+	{
+		$this->translator = $translator;
+	}
+
+
+
 	public function setHomepage($name = '', $link = '')
 	{
+		if ($this->translator) {
+			$name = $this->translator->translate($name);
+		}
+
 		$this->homepage = [
 			'name' => $name,
 			'link' => $link
 		];
+
+		return $this;
 	}
 
 
 
 	public function add($name = '', $link = '')
 	{
+		if ($this->translator) {
+			$name = $this->translator->translate($name);
+		}
+
 		$this->items[] = [
 			'name' => $name,
 			'link' => $link
 		];
+
 		return $this;
 	}
 
