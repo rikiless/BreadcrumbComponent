@@ -3,7 +3,7 @@ BreadcrumbComponent
 
 Basic component rendering breadcrumb for websites using Nette Framework.
 
-Included template is compatible with Bootstrap 3.2 *
+*Included template is compatible with Bootstrap 3.2 \**
 
 Requirements
 ---
@@ -34,7 +34,8 @@ Use
 Inject to presenter:
 
 ```php
-class Presenter ... {
+class Presenter ...
+{
 
     /**
      * @var Rikiless\BreadcrumbComponent\IControl
@@ -59,7 +60,8 @@ Render in template:
 ### Add items to breadcrumb
 
 ```php
-class CatalogPresenter ... {
+class CatalogPresenter ...
+{
 
     public function actionEpisode($id)
     {
@@ -75,7 +77,29 @@ class CatalogPresenter ... {
 }
 ```
 
-Rendered examples:
+### Custom template
+
+You can use your own template by this way:
+```php
+class Presenter ...
+{
+
+    public function createComponentBreadcrumb()
+    {
+        $breadcrumb = $this->breadcrumbControl->create();
+        $breadcrumb->setTemplate(__DIR__. '/../templates/_breadcrumb.latte');
+        return $breadcrumb;
+    }
+
+}
+```
+
+### Translations
+
+Translations are supported.
+
+Examples
+---
 
 ![Example 1](http://github.rikiho.net/breadcrumb-component-1.png)
 
