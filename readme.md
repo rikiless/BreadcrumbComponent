@@ -10,7 +10,7 @@ Requirements
 
 This package requires PHP 5.4.
 
-- [nette/nette](https://github.com/nette/nette/) (>= 2.1)
+- [nette/application](https://github.com/nette/application/)
 
 Installation
 ---
