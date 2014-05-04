@@ -21,11 +21,21 @@ class Control extends Nette\Application\UI\Control
 	/** @var array */
 	private $items = [];
 
+	/** @var string */
+	private $customTemplate;
+
 
 
 	public function __construct(Nette\Localization\ITranslator $translator = NULL)
 	{
 		$this->translator = $translator;
+	}
+
+
+
+	public function setTemplate($path)
+	{
+		$this->customTemplate = $path;
 	}
 
 
@@ -64,13 +74,17 @@ class Control extends Nette\Application\UI\Control
 
 	public function render()
 	{
+		if ($this->customTemplate == FALSE) {
+			$this->customTemplate = __DIR__. '/templates/breadcrumb.latte';
+		}
+
 		$this->template->homepage = !empty($this->homepage) ? $this->homepage : [
 			'name' => 'Home',
 			'link' => $this->presenter->link('Homepage:default')
 		];
 		$this->template->items = $this->items;
 		$this->template->backLink = (count($this->items) >= 2 and !empty($this->items[count($this->items)-2]['link'])) ? $this->items[count($this->items)-2] : FALSE;
-		$this->template->setFile(__DIR__. '/templates/breadcrumb.latte');
+		$this->template->setFile($this->customTemplate);
 		$this->template->render();
 	}
 
