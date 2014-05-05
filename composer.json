@@ -1,18 +1,22 @@
 {
-    "name": "rikiless/breadcrumb-component",
-    "description": "Basic component rendering breadcrumb for websites using Nette Framework",
-    "require": {
+	"name": "rikiless/breadcrumb-component",
+	"description": "Basic component rendering breadcrumb for websites using Nette Framework",
+	"keywords": [
+		"breadcrumb",
+		"nette"
+	],
+	"require": {
 		"php": ">=5.4",
 		"nette/application": "@dev"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "rikiless",
-            "email": "richardtekel@me.com",
+	},
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "rikiless",
+			"email": "richardtekel@me.com",
 			"homepage": "http://www.rikiho.net"
-        }
-    ],
+		}
+	],
 	"autoload": {
 		"psr-0": {
 			"Rikiless\\": "src/"
